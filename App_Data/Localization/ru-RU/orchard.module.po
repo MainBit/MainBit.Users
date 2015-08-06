@@ -1,0 +1,11 @@
+# Orchard resource strings - ru-RU
+# Copyright (c) 2015 neTp9c
+
+msgid "Public profile"
+msgstr "Общедоступный профиль"
+
+msgid "Personal data"
+msgstr "Личные данные"
+
+msgid "Save"
+msgstr "Сохранить"

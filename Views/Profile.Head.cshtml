@@ -1,0 +1,14 @@
+﻿@using System.Web.Mvc.Html
+@using Orchard
+@using Orchard.ContentManagement;
+@using Orchard.Mvc.Html
+@{
+  var userName = ((IContent)Model.ContentItem).As<Orchard.Security.IUser>().UserName;
+}
+  <!-- Profile Head -->
+<div class="profile-head">
+    <h1>@Html.TitleForPage(userName)</h1>
+    @if(WorkContext.CurrentUser != null && WorkContext.CurrentUser.UserName == userName) {
+        @Html.ActionLink(T("Edit your profile").Text, "Edit", new { username = userName })
+    }
+</div>

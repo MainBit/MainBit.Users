@@ -1,0 +1,19 @@
+﻿@*@Display(Model.Title)
+@using (Html.BeginFormAntiForgeryPost()) {
+    @Html.ValidationSummary()
+    @Display(Model.Editor)
+}*@
+@{
+    Layout.BeforeMain.Add(Model.Title);
+    Model.Editor.Sidebar = null;
+}
+@using (Html.BeginFormAntiForgeryPost(Url.Action("Index"), FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.ValidationSummary()
+    @Display(Model.Editor)
+    <div class="form-group">
+        <div class="col-xs-offset-3 col-xs-9">
+            <button class="btn btn-primary" type="submit">@T("Save")</button>
+        </div>
+    </div>
+}

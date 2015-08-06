@@ -1,0 +1,7 @@
+﻿<Placement>
+  <Place Parts_Roles_UserRoles_Edit="-" />
+  <Place Parts_UserPersonalData="Content:2"/>
+  <Match ContentType="User">
+    
+  </Match>
+</Placement>
