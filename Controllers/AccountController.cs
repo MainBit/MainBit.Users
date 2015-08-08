@@ -112,6 +112,55 @@ namespace MainBit.Users.Controllers
             return new ShapeResult(this, shape); 
         }
 
+        [AlwaysAccessible]
+        public ActionResult RequestLostPassword()
+        {
+            // ensure users can request lost password
+            var registrationSettings = _orchardServices.WorkContext.CurrentSite.As<RegistrationSettingsPart>();
+            if (!registrationSettings.EnableLostPassword)
+            {
+                return HttpNotFound();
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        [AlwaysAccessible]
+        public ActionResult RequestLostPassword(string username)
+        {
+            // ensure users can request lost password
+            var registrationSettings = _orchardServices.WorkContext.CurrentSite.As<RegistrationSettingsPart>();
+            if (!registrationSettings.EnableLostPassword)
+            {
+                return HttpNotFound();
+            }
+
+            if (String.IsNullOrWhiteSpace(username))
+            {
+                ModelState.AddModelError("userNameOrEmail", T("Invalid username or E-mail."));
+                return View();
+            }
+
+            if (_userService.VerifyUserUnicity(username, username))
+            {
+                ModelState.AddModelError("userExists", T("User with that username and/or email doesn't exists."));
+                return View();
+            }
+
+            var siteUrl = _orchardServices.WorkContext.CurrentSite.BaseUrl;
+            if (String.IsNullOrWhiteSpace(siteUrl))
+            {
+                siteUrl = HttpContext.Request.ToRootUrlString();
+            }
+
+            _userService.SendLostPasswordEmail(username, nonce => Url.MakeAbsolute(Url.Action("LostPassword", "Account", new { Area = "Orchard.Users", nonce = nonce }), siteUrl));
+
+            _orchardServices.Notifier.Information(T("Check your e-mail for the recovery password link."));
+
+            return RedirectToAction("LogOn", "Account", new { area = "Orchard.Users" });
+        }
+
         #region Validation Methods
 
         private bool ValidateRegistration(string userName, string email, string password, string confirmPassword) {

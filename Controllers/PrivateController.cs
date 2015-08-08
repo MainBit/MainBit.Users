@@ -62,7 +62,7 @@ namespace MainBit.Users.Controllers
                 return View("Index", (object)shape);
             }
 
-            //Services.Notifier.Information(T("Your profile has been saved."));
+            _services.Notifier.Information(T("Your profile has been saved."));
 
             return RedirectToAction("Index");
         }

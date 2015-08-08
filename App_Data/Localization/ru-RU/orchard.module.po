@@ -9,3 +9,24 @@ msgstr "Личные данные"
 
 msgid "Save"
 msgstr "Сохранить"
+
+msgid "User with that username and/or email doesn't exists."
+msgstr "Такого пользователя не существует. Пожалуйста, проверьте корректность введенных данных."
+
+#: "MainBit.Users.Events.UserEventHandler"
+msgctxt "MainBit.Users.Events.UserEventHandler"
+msgid "Your password successfully changed."
+msgstr "Ваш пароль успешно изменен."
+
+#: "MainBit.Users.Services.MainbitUserService"
+msgctxt "MainBit.Users.Services.MainbitUserService"
+msgid "Lost password"
+msgstr "Восстановление пароля на сайте ВГУЮ"
+
+#: "~/Modules/MainBit.Users/Views/Account/RequestLostPassword.cshtml"
+msgctxt "~/Modules/MainBit.Users/Views/Account/RequestLostPassword.cshtml"
+msgid "Lost Password"
+msgstr "Забыли пароль"
+
+msgid "Your profile has been saved."
+msgstr "Ваш профиль был успешно изменен."

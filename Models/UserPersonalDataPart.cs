@@ -25,5 +25,11 @@ namespace MainBit.Users.Models
             get { return Retrieve(x => x.LastName); }
             set { Store(x => x.LastName, value); }
         }
+
+        public string Phone
+        {
+            get { return Retrieve(x => x.Phone); }
+            set { Store(x => x.Phone, value); }
+        }
     }
 }

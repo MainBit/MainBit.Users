@@ -7,13 +7,16 @@
     Layout.BeforeMain.Add(Model.Title);
     Model.Editor.Sidebar = null;
 }
-@using (Html.BeginFormAntiForgeryPost(Url.Action("Index"), FormMethod.Post, new { @class = "form-horizontal" }))
-{
-    @Html.ValidationSummary()
-    @Display(Model.Editor)
-    <div class="form-group">
-        <div class="col-xs-offset-3 col-xs-9">
-            <button class="btn btn-primary" type="submit">@T("Save")</button>
+<div class="eidt-profile">
+    <p>@T("Заполните личные данные, и вам не придется каждый раз вводить их при оплате обучающих мероприятий и семинаров, проходящих в нашем Университете.")</p>
+    @using (Html.BeginFormAntiForgeryPost(Url.Action("Index"), FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.ValidationSummary()
+        @Display(Model.Editor)
+        <div class="form-group">
+            <div class="col-xs-offset-3 col-xs-9">
+                <button class="btn btn-primary" type="submit">@T("Save")</button>
+            </div>
         </div>
-    </div>
-}
+    }
+</div>

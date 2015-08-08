@@ -16,5 +16,12 @@ namespace MainBit.Users.Migrations
 
             return 1;
         }
+
+        public int UpdateFrom1()
+        {
+            SchemaBuilder.AlterTable("UserPersonalDataPartRecord", table => table.AddColumn<string>("Phone", c => c.WithLength(128)));
+
+            return 2;
+        }
     }
 }

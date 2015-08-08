@@ -83,6 +83,23 @@ namespace MainBit.Users
                                                          new MvcRouteHandler())
 
                              },
+
+                             new RouteDescriptor {   Priority = 6,
+                                                     Route = new Route(
+                                                         "profile/password-recovery",
+                                                         new RouteValueDictionary {
+                                                                                      {"area", "MainBit.Users"},
+                                                                                      {"controller", "Account"},
+                                                                                      {"action", "RequestLostPassword"},
+
+                                                         },
+                                                         new RouteValueDictionary (),
+                                                         new RouteValueDictionary {
+                                                                                      {"area", "MainBit.Users"}
+                                                                                  },
+                                                         new MvcRouteHandler())
+
+                             },
                          };
         }
     }
