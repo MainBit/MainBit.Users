@@ -1,11 +1,9 @@
-﻿using JetBrains.Annotations;
-using Orchard.ContentManagement;
+﻿using Orchard.ContentManagement;
 using Orchard.Data;
 using Orchard.ContentManagement.Handlers;
 using MainBit.Users.Models;
 
 namespace MainBit.Users.Handlers {
-    [UsedImplicitly]
     public class UserPersonalDataPartHandler : ContentHandler {
         public UserPersonalDataPartHandler(IRepository<UserPersonalDataPartRecord> repository)
         {

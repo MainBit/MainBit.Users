@@ -1,25 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using JetBrains.Annotations;
 using Orchard.DisplayManagement;
-using Orchard.Localization;
-using Orchard.Logging;
 using Orchard.ContentManagement;
 using Orchard.Settings;
 using Orchard.Users.Models;
 using Orchard.Security;
-using System.Xml.Linq;
 using Orchard.Services;
-using System.Globalization;
-using System.Text;
 using Orchard.Messaging.Services;
 using Orchard.Environment.Configuration;
 using Orchard.Users.Services;
 
 namespace MainBit.Users.Services
 {
-    [UsedImplicitly]
     public class MainbitUserService : UserService, IUserService
     {
         private static readonly TimeSpan DelayToValidate = new TimeSpan(7, 0, 0, 0); // one week to validate email
