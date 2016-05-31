@@ -125,8 +125,10 @@
     <Compile Include="Drivers\UserPersonalDataPartDriver.cs" />
     <Compile Include="Events\UserEventHandler.cs" />
     <Compile Include="Extensions\UrlHelperExtensions.cs" />
+    <Compile Include="Handlers\UserClaimsPartHandler.cs" />
     <Compile Include="Handlers\UserPersonalDataPartHandler.cs" />
     <Compile Include="Migrations\UserPersonalDataMigrations.cs" />
+    <Compile Include="Models\UserClaimsPart.cs" />
     <Compile Include="Models\UserPersonalDataPart.cs" />
     <Compile Include="Models\UserPersonalDataPartRecord.cs" />
     <Compile Include="Permissions.cs" />
