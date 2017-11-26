@@ -44,7 +44,8 @@ namespace MainBit.Users.Controllers
 
             var viewModel = _services.New.ViewModel();
             viewModel.Editor =_contentManager.BuildEditor(user.ContentItem);
-            viewModel.Title = _services.New.Parts_Title(Title: T("Personal data").Text);  // viewModel.Title = _services.New.Parts_Title(Title: T("Public profile").Text);
+            viewModel.Title = _services.New.Parts_Title(Title: T("Personal data").Text);
+
             return View((object)viewModel);
         }
 
@@ -55,11 +56,16 @@ namespace MainBit.Users.Controllers
         {
             IUser user = _services.WorkContext.CurrentUser;
 
-            dynamic shape = _services.ContentManager.UpdateEditor(user.ContentItem, this);
+            dynamic editor = _services.ContentManager.UpdateEditor(user.ContentItem, this);
             if (!ModelState.IsValid)
             {
                 _services.TransactionManager.Cancel();
-                return View("Index", (object)shape);
+
+                var viewModel = _services.New.ViewModel();
+                viewModel.Editor = editor;
+                viewModel.Title = _services.New.Parts_Title(Title: T("Personal data").Text);
+
+                return View("Index", (object)viewModel);
             }
 
             _services.Notifier.Information(T("Your profile has been saved."));
