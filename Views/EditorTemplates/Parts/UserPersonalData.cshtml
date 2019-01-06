@@ -15,25 +15,25 @@
 @using Orchard.Mvc.Extensions
 @model MainBit.Users.Models.UserPersonalDataPart
 <div class="form-group">
-    <label for="@Html.NameFor(m => m.LastName)" class="col-xs-3 control-label">@T("Last name")</label>
+    <label for="@Html.NameFor(m => m.LastName)" class="col-xs-3 control-label required">@T("Last name")</label>
     <div class="col-xs-9">
         @Html.TextBoxFor(m => m.LastName, new { @class = "form-control text" })
     </div>
 </div>
 <div class="form-group">
-    <label for="@Html.NameFor(m => m.FirstName)" class="col-xs-3 control-label">@T("First name")</label>
+    <label for="@Html.NameFor(m => m.FirstName)" class="col-xs-3 control-label required">@T("First name")</label>
     <div class="col-xs-9">
         @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control text" })
     </div>
 </div>
 <div class="form-group">
-    <label for="@Html.NameFor(m => m.MiddleName)" class="col-xs-3 control-label">@T("Middle name")</label>
+    <label for="@Html.NameFor(m => m.MiddleName)" class="col-xs-3 control-label required">@T("Middle name")</label>
     <div class="col-xs-9">
         @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control text" })
     </div>
 </div>
 <div class="form-group">
-    <label for="@Html.NameFor(m => m.Phone)" class="col-xs-3 control-label">@T("Phone")</label>
+    <label for="@Html.NameFor(m => m.Phone)" class="col-xs-3 control-label required">@T("Phone")</label>
     <div class="col-xs-9">
         @Html.TextBoxFor(m => m.Phone, new { @class = "form-control text" })
     </div>
